@@ -81,7 +81,7 @@ document.getElementById("viewHousesBtn").addEventListener("click", async () => {
     const result = await response.json();
     const data = result.data;
 
-
+    console.log("Received data:", req.body);
     if (!Array.isArray(data) || data.length === 0) {
       container.innerHTML = "<p>No houses found.</p>";
       return;
