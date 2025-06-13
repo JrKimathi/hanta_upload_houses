@@ -16,7 +16,7 @@ document.getElementById('uploadForm').addEventListener('submit', async function 
     "rent", "location", "locationDescription", "floorLevel", "deposit",
     "proximityToRoad", "squareMetres", "bedroomDescription", "latitude", "longitude",
     "roomsTotal", "houseFloors", "storiesTotal", "agentPhone",
-    "bedroomsTotal", "utilities", "parking"
+    "bedroomsTotal", "utilities", "parking", "security", "wifi", "water", "electricity", "garbage"
   ];
 
   // Validation
