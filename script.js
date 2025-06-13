@@ -20,10 +20,6 @@ document.getElementById('uploadForm').addEventListener('submit', async function 
 
   // Validation
   for (const name of fields) {
-    if (!input) {
-      alert(`Input field "${name}" not found in the form`);
-      continue;
-    }
     if (!form[name].value.trim()) {
       alert(`Please fill in the "${name}" field.`);
       return;
