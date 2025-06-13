@@ -13,14 +13,17 @@ document.getElementById('uploadForm').addEventListener('submit', async function 
   const formData = new FormData();
 
   const fields = [
-    "rent", "location", "locationDescription", "floorLevel", "deposit",
+    "rent", "location", "floorLevel", "deposit",
     "proximityToRoad", "squareMetres", "bedroomDescription", "latitude", "longitude",
-    "roomsTotal", "houseFloors", "storiesTotal", "agentPhone",
-    "bedroomsTotal", "utilities", "parking", "security", "wifi", "water", "electricity", "garbage"
+    "storiesTotal", "parking", "security", "wifi", "water", "electricity", "garbage"
   ];
 
   // Validation
   for (const name of fields) {
+    if (!input) {
+      alert(`Input field "${name}" not found in the form`);
+      continue;
+    }
     if (!form[name].value.trim()) {
       alert(`Please fill in the "${name}" field.`);
       return;
