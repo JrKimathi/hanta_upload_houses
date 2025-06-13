@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cazzadorr Houses</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Cazzadorr Houses Data</h1>
+    <form id="uploadForm" enctype="multipart/form-data" netlify>
+
+        <div class="form">
+
+            <div class="formData">
+                <label for="rent">Rent Amount</label>
+                <input type="text" id="rent" name="rent" placeholder="18000">
+            </div>
+
+            <div id="formData">
+                <label for="location">Location</label>
+                <input type="text" id="location" name="location" placeholder="Maasai Lodge">
+            </div>
+
+            <div id="formData">
+                <label for="deposit">Deposit</label>
+                <input type="text" id="deposit" name="deposit" placeholder="Enter value as a string">
+            </div>
+
+            <div id="formData">
+                <label for="floorLevel">Floor Level</label>
+                <input type="text" id="floorLevel" name="floorLevel" placeholder="Example: 20000">
+            </div>
+
+            <div id="formData">
+                <label for="proximityToRoad">Proximity To Road</label>
+                <input type="text" id="proximityToRoad" name="proximityToRoad" placeholder="E.g 100 metres">
+            </div>
+
+            <div id="formData">
+                <label for="squareMetres">Square Metres</label>
+                <input type="text" id="squareMetres" name="squareMetres" placeholder="E.g 100">
+            </div>
+
+            <div id="formData">
+                <label for="bedroomDescription">House Description</label>
+                <input type="text" id="bedroomDescription" name="bedroomDescription"
+                    placeholder="E.g Bedsitter, 3 bedroom">
+            </div>
+
+            <div id="formData">
+                <label for="latitude">Latitude</label>
+                <input type="text" id="latitude" name="latitude" placeholder="E.g -1.34535">
+            </div>
+
+            <div id="formData">
+                <label for="longitude">Longitude</label>
+                <input type="text" id="longitude" name="longitude" placeholder="E.g 34.8535">
+            </div>
+
+
+            <div id="formData">
+                <label for="storiesTotal">Stories Total</label>
+                <input type="text" id="storiesTotal" name="storiesTotal" placeholder="E.g 10">
+            </div>
+
+            <div id="formData">
+                <label for="agentPhone">Listing Agent Phone</label>
+                <input type="text" id="agentPhone" name="agentPhone" placeholder="E.g 0797658655">
+            </div>
+
+            <div id="formData">
+                <label for="bedroomsTotal">Total Bedrooms</label>
+                <input type="text" id="bedroomsTotal" name="bedroomsTotal" placeholder="E.g 2 Bedrooms">
+            </div>
+
+            <div id="formData" style="display: flex; flex-direction: column;">
+                <label for="utilities">Utilities</label>
+                <textarea name="utilities" id="utilities" rows="4" cols="30"
+                    placeholder="Enter Utilities here separated by commas"></textarea>
+            </div>
+
+
+            <div id="formData">
+                <label for="parking">Parking</label>
+                <input name="parking" type="text" id="parking" placeholder="E.g Parking For 2 cars, No parking">
+            </div>
+
+            <div id="formData" style="display: flex; flex-direction: column;">
+                <label for="images">Upload Images</label>
+                <input type="file" id="images" name="images" accept="image/*" multiple>
+            </div>
+
+            <div id="formData" style="display: flex; flex-direction: column;">
+                <label for="videos">Upload Videos</label>
+                <input type="file" id="videos" name="videos" accept="video/*" multiple>
+            </div>
+
+            <div id="formData">
+                <button id="submit" type="submit">SUBMIT</button>
+            </div>
+
+        </div>
+
+        <!-- Spinner -->
+        <div id="spinner">
+            <div class="loader"></div>
+        </div>
+    </form>
+
+    <!-- View Houses Button -->
+    <div style="margin-top: 20px;">
+        <button id="viewHousesBtn" type="button">View Houses</button>
+    </div>
+
+    <!-- Houses Data Display Section -->
+    <div id="housesDataContainer" style="margin-top: 20px;">
+        <!-- Fetched data will be rendered here -->
+    </div>
+
+
+    <!-- Dialog Box -->
+    <div id="successDialog" class="dialog" style="display:none;">
+        <p>Data sent Successfully!</p>
+        <button id="closeDialogBtn" class="btn">Close</button>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="overlay" style="display:none;"></div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

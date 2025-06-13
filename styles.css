@@ -1,0 +1,235 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 10px;
+    overflow-x: hidden;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 4px solid rgb(13, 117, 214);
+    padding: 20px;
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.formData {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    width: 100%;
+}
+
+#formData input,
+#formData textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 100%;
+}
+
+#formData input[type="file"] {
+    padding: 5px;
+}
+
+#submit {
+    color: white;
+    background-color: rgb(13, 117, 214);
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+#submit:hover {
+    background-color: rgb(10, 95, 180);
+}
+
+input[type="file"] {
+    white-space: normal;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+}
+
+/* Dialog styling */
+.dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #f9f9f9;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 1000;
+    min-width: 300px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2e7d32;
+}
+
+.dialog p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.btn {
+    background-color: #4caf50;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1em;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+#spinner {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#spinner .loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#successDialog,
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+#successDialog {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+}
+
+#viewHousesBtn {
+    background-color: #2e86de;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#viewHousesBtn:hover {
+    background-color: #1b4f72;
+}
+
+#housesDataContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.house-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    padding: 16px;
+    transition: transform 0.2s;
+}
+
+.house-card:hover {
+    transform: translateY(-5px);
+}
+
+.house-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.house-card h3 {
+    margin-top: 0;
+    color: #2385e7;
+    font-size: 30px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    .form {
+        padding: 15px;
+        border-width: 3px;
+    }
+}
