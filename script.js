@@ -9,6 +9,7 @@ document.getElementById("closeDialogBtn").addEventListener("click", function () 
 document.getElementById('uploadForm').addEventListener('submit', async function (e) {
   e.preventDefault();
 
+  const spinner = document.getElementById("spinner");
   const form = e.target;
   const formData = new FormData();
 
@@ -43,6 +44,7 @@ document.getElementById('uploadForm').addEventListener('submit', async function 
   submitButton.disabled = true;
   submitButton.textContent = "Uploading...";
   spinner.style.display = "flex";
+
 
   try {
     const response = await fetch("https://houses-data-1037566601387.us-central1.run.app/user/addData", {
@@ -101,11 +103,8 @@ document.getElementById("viewHousesBtn").addEventListener("click", async () => {
         <p><strong>Floor Level:</strong> ${house.floorLevel || "N/A"}</p>
         <p><strong>Proximity to Road:</strong> ${house.proximityToRoad || "N/A"}</p>
         <p><strong>Square Metres:</strong> ${house.squareMetres || "N/A"}</p>
-        <p><strong>Bedrooms Total:</strong> ${house.bedroomsTotal || "N/A"}</p>
         <p><strong>Stories Total:</strong> ${house.storiesTotal}</p>
-        <p><strong>Utilities:</strong> ${house.utilities}</p>
-        <p><strong>Parking:</strong> ${house.parking}</p>
-        <p><strong>Agent Phone:</strong> ${house.agentPhone}</p>
+        <p><strong>Parking:</strong> ${house.parking || "N/A"}</p>
         ${imageUrl ? `<img src="${imageUrl}" alt="House Image" class="house-img">` : ""}
         ${videoUrl ? `<p><strong>Video:</strong> <a href="${videoUrl}" target="_blank">Watch Tour</a></p>` : ""}
       `;
