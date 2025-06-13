@@ -47,6 +47,14 @@ document.getElementById('uploadForm').addEventListener('submit', async function 
 
 
   try {
+    console.log("======== FORM DATA BEING SENT ========");
+    for (let pair of formData.entries()) {
+      if (pair[1] instanceof File) {
+        console.log(pair[0] + ":", pair[1].name); // Log file names
+      } else {
+        console.log(pair[0] + ":", pair[1]);
+      }
+    }
     const response = await fetch("https://houses-data-1037566601387.us-central1.run.app/user/addData", {
       method: "POST",
       body: formData
