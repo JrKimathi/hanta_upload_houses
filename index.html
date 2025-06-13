@@ -11,9 +11,7 @@
 <body>
     <h1>Cazzadorr Houses Data</h1>
     <form id="uploadForm" enctype="multipart/form-data" netlify>
-
         <div class="form">
-
             <div class="formData">
                 <label for="rent">Rent Amount</label>
                 <input type="text" id="rent" name="rent" placeholder="18000">
@@ -22,6 +20,16 @@
             <div id="formData">
                 <label for="location">Location</label>
                 <input type="text" id="location" name="location" placeholder="Maasai Lodge">
+            </div>
+
+            <div id="formData">
+                <label for="latitude">Latitude</label>
+                <input type="text" id="latitude" name="latitude" placeholder="E.g -1.34535">
+            </div>
+
+            <div id="formData">
+                <label for="longitude">Longitude</label>
+                <input type="text" id="longitude" name="longitude" placeholder="E.g 34.8535">
             </div>
 
             <div id="formData">
@@ -51,37 +59,34 @@
             </div>
 
             <div id="formData">
-                <label for="latitude">Latitude</label>
-                <input type="text" id="latitude" name="latitude" placeholder="E.g -1.34535">
+                <label for="wifi">Wifi</label>
+                <input type="text" id="wifi" name="wifi" placeholder="Eg: 1500 per month">
             </div>
 
             <div id="formData">
-                <label for="longitude">Longitude</label>
-                <input type="text" id="longitude" name="longitude" placeholder="E.g 34.8535">
+                <label for="electricity">Electricity</label>
+                <input type="text" id="electricity" name="electricity" placeholder="Eg; Tokens">
             </div>
 
+            <div id="formData">
+                <label for="garbage">Garbage Collection</label>
+                <input type="text" id="garbage" name="garbage" placeholder="E.g 200 per month, N/A">
+            </div>
+
+            <div id="formData">
+                <label for="water">Water</label>
+                <input type="text" id="water" name="water" placeholder="Eg; 120 per unit">
+            </div>
+
+            <div id="formData">
+                <label for="security">Security Fee</label>
+                <input type="text" id="security" name="storiesTotal" placeholder="250 per month">
+            </div>
 
             <div id="formData">
                 <label for="storiesTotal">Stories Total</label>
                 <input type="text" id="storiesTotal" name="storiesTotal" placeholder="E.g 10">
             </div>
-
-            <div id="formData">
-                <label for="agentPhone">Listing Agent Phone</label>
-                <input type="text" id="agentPhone" name="agentPhone" placeholder="E.g 0797658655">
-            </div>
-
-            <div id="formData">
-                <label for="bedroomsTotal">Total Bedrooms</label>
-                <input type="text" id="bedroomsTotal" name="bedroomsTotal" placeholder="E.g 2 Bedrooms">
-            </div>
-
-            <div id="formData" style="display: flex; flex-direction: column;">
-                <label for="utilities">Utilities</label>
-                <textarea name="utilities" id="utilities" rows="4" cols="30"
-                    placeholder="Enter Utilities here separated by commas"></textarea>
-            </div>
-
 
             <div id="formData">
                 <label for="parking">Parking</label>
