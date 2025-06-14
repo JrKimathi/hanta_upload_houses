@@ -10,7 +10,7 @@ document.getElementById('uploadForm').addEventListener('submit', async function 
   e.preventDefault();
 
   const spinner = document.getElementById("spinner");
-  const form = e.target;
+  const form = this;
   const formData = new FormData();
 
   const fields = [
@@ -21,12 +21,21 @@ document.getElementById('uploadForm').addEventListener('submit', async function 
 
   // Validation
   for (const name of fields) {
-    if (!form[name].value.trim()) {
+    const inputEl = form.querySelector(`[name="${name}"]`);
+    if (!inputEl) {
+      alert(`Missing input: ${name}`);
+      return;
+    }
+
+    const value = inputEl.value.trim();
+    if (!value) {
       alert(`Please fill in the "${name}" field.`);
       return;
     }
-    formData.append(name, form[name].value);
+
+    formData.append(name, value);
   }
+
 
   // Append image files
   const imageFiles = form['images'].files;
@@ -47,14 +56,21 @@ document.getElementById('uploadForm').addEventListener('submit', async function 
 
 
   try {
-    console.log("======== FORM DATA BEING SENT ========");
     for (let pair of formData.entries()) {
-      if (pair[1] instanceof File) {
-        console.log(pair[0] + ":", pair[1].name); // Log file names
+      const [key, value] = pair;
+      if (value instanceof File) {
+        console.log(`${key}:`, value.name, `(type: ${typeof value})`);
       } else {
-        console.log(pair[0] + ":", pair[1]);
+        console.log(`${key}:`, value, `(type: ${typeof value})`);
       }
     }
+
+    for (let [key, val] of formData.entries()) {
+      console.log(`${key}:`, val, `=> typeof: ${typeof val}`);
+    }
+
+
+
     const response = await fetch("https://houses-data-1037566601387.us-central1.run.app/user/addData", {
       method: "POST",
       body: formData
@@ -89,7 +105,7 @@ document.getElementById("viewHousesBtn").addEventListener("click", async () => {
     const result = await response.json();
     const data = result.data;
 
-    console.log("Received data:", req.body);
+    console.log("Received data:", result.data);
     if (!Array.isArray(data) || data.length === 0) {
       container.innerHTML = "<p>No houses found.</p>";
       return;
