@@ -13,14 +13,20 @@ document.getElementById('uploadForm').addEventListener('submit', async function 
   const form = this;
   const formData = new FormData();
 
-  const fields = [
+  const requiredFields = [
+    "rent", "location", "floorLevel", "deposit",
+    "proximityToRoad", "squareMetres", "bedroomDescription", "latitude", "longitude",
+    "storiesTotal"
+  ];
+
+  const allFields = [
     "rent", "location", "floorLevel", "deposit",
     "proximityToRoad", "squareMetres", "bedroomDescription", "latitude", "longitude",
     "storiesTotal", "parking", "security", "wifi", "water", "electricity", "garbage"
   ];
 
   // Validation
-  for (const name of fields) {
+  for (const name of requiredFields) {
     const inputEl = form.querySelector(`[name="${name}"]`);
     if (!inputEl) {
       alert(`Missing input: ${name}`);
@@ -35,7 +41,6 @@ document.getElementById('uploadForm').addEventListener('submit', async function 
 
     formData.append(name, value);
   }
-
 
   // Append image files
   const imageFiles = form['images'].files;
