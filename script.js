@@ -25,12 +25,16 @@ document.getElementById('uploadForm').addEventListener('submit', async function 
     "storiesTotal", "parking", "security", "wifi", "water", "electricity", "garbage"
   ];
 
+  const optionalFields = allFields.filter(field => !requiredFields.includes(field));
+
+
   // Validation
-  for (const name of requiredFields) {
+  for (const name of optionalFields) {
     const inputEl = form.querySelector(`[name="${name}"]`);
-    if (!inputEl) {
-      alert(`Missing input: ${name}`);
-      return;
+    if (inputEl) {
+      formData.append(name, inputEl.value.trim());
+    } else {
+      formData.append(name, "");
     }
 
     const value = inputEl.value.trim();
