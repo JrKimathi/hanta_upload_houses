@@ -28,13 +28,12 @@ document.getElementById('uploadForm').addEventListener('submit', async function 
   const optionalFields = allFields.filter(field => !requiredFields.includes(field));
 
 
-  // Validation
-  for (const name of optionalFields) {
+  // Validate and append required fields
+  for (const name of requiredFields) {
     const inputEl = form.querySelector(`[name="${name}"]`);
-    if (inputEl) {
-      formData.append(name, inputEl.value.trim());
-    } else {
-      formData.append(name, "");
+    if (!inputEl) {
+      alert(`Missing input: ${name}`);
+      return;
     }
 
     const value = inputEl.value.trim();
@@ -44,6 +43,12 @@ document.getElementById('uploadForm').addEventListener('submit', async function 
     }
 
     formData.append(name, value);
+  }
+
+  //Append optional fields (no validation)
+  for (const name of optionalFields) {
+    const inputEl = form.querySelector(`[name="${name}"]`);
+    formData.append(name, inputEl ? inputEl.value.trim() : "");
   }
 
   // Append image files
